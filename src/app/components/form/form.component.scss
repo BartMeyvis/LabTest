@@ -1,0 +1,13 @@
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: white;
+  min-width: 400px;
+}
+
+.current {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 4px;
+}

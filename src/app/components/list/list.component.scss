@@ -1,0 +1,38 @@
+.list-item {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 20px 0;
+  position: relative;
+
+  .header {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    h3 {
+      margin: 0;
+    }
+
+    .edit-icon {
+      cursor: pointer;
+      color: #01bdee;
+    }
+  }
+
+  .btn-delete {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    display: none;
+  }
+
+  &:hover {
+    .btn-delete {
+      display: block;
+    }
+  }
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}

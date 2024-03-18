@@ -1,0 +1,65 @@
+<form [formGroup]="educationForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>School Name</mat-label>
+    <input matInput formControlName="schoolName" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Field of Study</mat-label>
+    <input matInput formControlName="fieldOfStudy" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <input matInput formControlName="description" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>City</mat-label>
+    <input matInput formControlName="city" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>From</mat-label>
+    <input matInput type="date" formControlName="from" />
+  </mat-form-field>
+
+  <div class="current">
+    <mat-label>Is current</mat-label>
+    <mat-slide-toggle id="switcher" formControlName="current" />
+  </div>
+
+  <mat-form-field appearance="fill">
+    <mat-label>To</mat-label>
+    <input
+      matInput
+      id="toDateField"
+      type="date"
+      formControlName="to"
+      [disabled]="educationForm.get('current')?.value"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Education Type</mat-label>
+    <mat-select formControlName="educationType">
+      <mat-option
+        *ngFor="let educationType of educationTypes | keyvalue"
+        [value]="educationType.key"
+        >{{ educationType.value }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+
+  <div class="flex row space-between">
+    <button
+      mat-raised-button
+      color="seconday"
+      type="button"
+      (click)="onClose()"
+    >
+      Cancel
+    </button>
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </div>
+</form>

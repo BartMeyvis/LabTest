@@ -1,0 +1,22 @@
+<mat-sidenav-container class="wrapper">
+  <mat-sidenav #sidenav mode="side" [opened]="isOpened()">
+    <app-form />
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="container">
+      <div class="flex row">
+        <h1>Education</h1>
+        <button
+          mat-fab
+          color="primary"
+          aria-label="Example icon button with a delete icon"
+          (click)="toggleAddEducation()"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+
+      <app-list />
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

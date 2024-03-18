@@ -1,0 +1,31 @@
+<div class="list-item" *ngFor="let education of educations()">
+  <div class="header">
+    <h3>{{ education.schoolName }}</h3>
+    <button mat-icon-button (click)="selectEducation(education)">
+      <mat-icon class="edit-icon">edit</mat-icon>
+    </button>
+  </div>
+
+  <p>{{ education.fieldOfStudy }} {{ education.educationType }}</p>
+  <p>
+    <span *ngIf="education.current; else notCurrentMessage">
+      {{ education.from | date : "YYYY" }} - Now
+    </span>
+    <ng-template #notCurrentMessage>
+      {{ education.from | date : "YYYY" }} - {{ education.to | date : "YYYY" }}
+    </ng-template>
+    | {{ education.from | timeDiff : education.to }} |
+    {{ education.city }}
+  </p>
+
+  <small>{{ education.description }}</small>
+
+  <button
+    mat-flat-button
+    class="btn-delete"
+    color="warn"
+    (click)="deleteEducation(education)"
+  >
+    Delete
+  </button>
+</div>
